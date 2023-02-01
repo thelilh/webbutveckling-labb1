@@ -1,31 +1,32 @@
 /*
 Online bokningssystem
 */
-const select = document.getElementById("daySelect");
-const temp = document.createElement("option");
-temp.value = 0;
-temp.text = "Välj en dag";
-temp.disabled = true;
-temp.selected = true;
-select.appendChild(temp);
-for (let i = 0; i < 10; i++) {
-  const option = document.createElement("option");
-  const date = new Date();
-  date.setDate(date.getDate() + i);
-  option.innerText = `${date.toLocaleDateString("sv-SE")}`;
-  option.value = option.innerHTML;
-  select.appendChild(option);
-}
-select.onchange = function () {
-  let myText = document.getElementById("dayShow");
-  myText.innerText = `DAY: ${select.value}`;
+const daySelect = document.getElementById("daySelect");
+const dayShow = document.getElementById("dayShow");
+const date = new Date();
+document.body.onload = () => {
+  daySelect.onchange = () => {
+    dayShow.innerText = daySelect.value;
+  };
+  const temp = document.createElement("option");
+  temp.value = 0;
+  temp.text = "Välj en dag";
+  temp.disabled = true;
+  temp.daySelected = true;
+  daySelect.appendChild(temp);
+  for (let i = 0; i < 10; i++) {
+    const option = document.createElement("option");
+    date.setDate(date.getDate() + i);
+    option.innerText = `${date.toLocaleDateString("sv-SE")}`;
+    option.value = date;
+    daySelect.appendChild(option);
+  }
+  slideLoop();
 };
-
 /* 
 Kod modifierad från w3schools.com
 */
 let slideIndex = 0;
-slideLoop();
 function slideLoop() {
   //Hämta alla element som har klassen "slide"
   let slides = document.getElementsByClassName("slide");
