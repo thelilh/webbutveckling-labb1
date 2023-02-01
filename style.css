@@ -1,0 +1,173 @@
+/* Importera Roboto från Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/* 
+ALLT
+*/
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+a {
+  color: #111;
+  text-decoration: none;
+}
+/* Ändra Selection och Focus */
+::-moz-selection {
+  color: #111;
+  background: #eee;
+}
+::selection {
+  color: #111;
+  background: #aaa;
+}
+*:focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* 
+SELECT
+ */
+.toolbar {
+  border: 1px solid #111;
+  height: 10vh;
+  /*overflow: hidden;*/
+}
+#daySelect {
+  border: none;
+  background-color: #111;
+  height: 100%;
+  width: 10em;
+  color: #fff;
+  font-size: 1em;
+}
+#daySelect:hover {
+  background-color: #333;
+}
+#daySelect option {
+  background-color: #333;
+  color: #fff;
+}
+/* 
+GRID
+*/
+.parent {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0fr 0.5fr 1fr 0.2fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.main {
+  grid-area: 3 / 1 / 4 / 2;
+  background-color: #fff;
+}
+.footer {
+  grid-area: 4 / 1 / 5 / 2;
+  border-top: 0.2em solid #aaa;
+}
+.top,
+.footer {
+  background-color: #eee;
+}
+.top {
+  position: fixed;
+  top: 0;
+  height: 6vw;
+  text-align: center;
+  border-bottom: 0.2em solid #aaa;
+  overflow: hidden;
+  width: 100vw;
+  z-index: 1;
+
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.main p {
+  padding-bottom: 1em;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.main h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+/* 
+Lists (UL) and List Items (LI)
+*/
+ul {
+  list-style-type: none;
+  display: inline-block;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+}
+.top li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #111;
+  text-align: center;
+  margin-right: 3em;
+  padding: 1em 0.5em 0em 0.5em;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  border-bottom: 0.1em solid #111;
+  font-weight: 500;
+}
+li a:active {
+  font-weight: bold;
+}
+
+/* LOGO */
+.logo {
+  padding: 1em 1em 1em 1em;
+  position: absolute;
+  margin-left: 1em;
+}
+.logo .fa {
+  font-size: 40px;
+  margin-right: 0.3em;
+  vertical-align: middle;
+  margin-top: -0.2em;
+}
+
+/* SLIDESHOW */
+.slideshow-container {
+  grid-area: 2 / 1 / 3 / 2;
+  text-align: center;
+  height: 50vh;
+  margin-top: 5em;
+  overflow: hidden;
+  border-bottom: 1em solid #111;
+}
+.text {
+  width: 100%;
+  font-size: 10em;
+  text-transform: uppercase;
+  color: #eee;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 10vh;
+}
+/* PHONE */
+@media screen and (max-width: 600px) {
+  .top h1 {
+    text-align: center !important;
+    margin-left: -2.5em;
+  }
+  .top ul {
+    margin-top: 4em;
+  }
+  .top li a {
+    margin-right: 1em;
+  }
+  .top {
+    height: 30vw;
+    position: static;
+  }
+}
