@@ -1,72 +1,68 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
   <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Hårfrisör</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+      defer
+    ></script>
     <link rel="stylesheet" href="../style.css" />
-    <script src="../script.js" async defer></script>
+    <script src="../script.js" defer></script>
   </head>
 
   <body>
-    <div class="parent">
-      <!-- top Start -->
-      <div class="top">
-        <div class="logo">
-          <a href="../">
-            <h1><i class="fa fa-scissors"></i>Saxalagom</h1>
-          </a>
+    <header>
+      <nav class="navbar navbar-expand-sm">
+        <div class="container">
+          <a class="navbar-brand" href="../">Saxalagom</a>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link rounded" href="#">Bokning</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link rounded"
+                  href="../contact/"
+                  aria-current="page"
+                  >Kontakta oss</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li><a href="#home">Behandlingar</a></li>
-          <li><a href="#about">Om Saxalagom</a></li>
-          <li><a href="">Online Bokning</a></li>
-          <li><a href="#news">Kontakta oss</a></li>
-        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="imgHeader text-center" id="imgHeader">
+        <h1 class="bg-transparent">test</h1>
       </div>
-      <!-- top Stop -->
-      <div class="slideshow-container">
-        <div class="slide fade">
-          <img src="../img/img1.jpg" style="width: 100%" />
-          <div class="text">Boka tid?</div>
-        </div>
-
-        <div class="slide fade">
-          <img src="../img/img2.jpg" style="width: 100%" />
-          <div class="text">Vi finns.</div>
-        </div>
-
-        <div class="slide fade">
-          <img src="../img/img3.jpg" style="width: 100%" />
-          <div class="text">Wow</div>
-        </div>
-
-        <div class="slide fade">
-          <img src="../img/img4.jpg" style="width: 100%" />
-          <div class="text">Ny Färg?</div>
-        </div>
-      </div>
-      <div class="main">
-        <div class="toolbar">
-          <form>
-            <select id="daySelect"></select>
-            <select id="hairLength">
-              <option value="0">Kort (1-10cm)</option>
-              <option value="2">Mellan (11-20cm)</option>
-              <option value="1">Långt (21+ cm)</option>
-            </select>
-          </form>
-        </div>
-      </div>
-      <div class="footer">
-        <h1>Öppettider</h1>
-      </div>
-    </div>
+    </main>
+    <footer></footer>
   </body>
 </html>

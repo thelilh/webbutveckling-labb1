@@ -1,46 +1,53 @@
-/*
-Online bokningssystem
-*/
-const daySelect = document.getElementById("daySelect");
-const dayShow = document.getElementById("dayShow");
-const date = new Date();
-document.body.onload = () => {
-  daySelect.onchange = () => {
-    dayShow.innerText = daySelect.value;
-  };
-  const temp = document.createElement("option");
-  temp.value = 0;
-  temp.text = "Välj en dag";
-  temp.disabled = true;
-  temp.daySelected = true;
-  daySelect.appendChild(temp);
-  for (let i = 0; i < 10; i++) {
-    const option = document.createElement("option");
-    date.setDate(date.getDate() + i);
-    option.innerText = `${date.toLocaleDateString("sv-SE")}`;
-    option.value = date;
-    daySelect.appendChild(option);
+const header = document.getElementById("imgHeader");
+let images = [
+  ["img/img1.jpg", "Image 1"],
+  ["img/img1.jpg", "Image 2"],
+  ["img/img1.jpg", "Image 3"],
+  ["img/img1.jpg", "Image 4"],
+];
+let index = 0;
+
+function imgHeaderLoop() {
+  //Kolla om vi är större än längden av images
+  if (index > images.length || index < 0) {
+    index = 0;
   }
-  slideLoop();
-};
-/* 
-Kod modifierad från w3schools.com
-*/
-let slideIndex = 0;
-function slideLoop() {
-  //Hämta alla element som har klassen "slide"
-  let slides = document.getElementsByClassName("slide");
-  //Loop:a igenom alla slides, göm allt.
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  //Hämta bilden från index.
+  header.style.backgroundImage = `url(${images[index][0]})`;
+  for (const child of header.children) {
+    if (child.tagName === "H1") {
+      child.innerText = images[index][1];
+    }
   }
-  //Visa den på platsen slideIndex
-  slides[slideIndex].style.display = "block";
-  //Lägga till en på slideIndex. Kolla om slideIndex är större eller lika med längden på slides
-  slideIndex++;
-  if (slideIndex >= slides.length) {
-    slideIndex = 0;
-  }
-  //Kör funktionen återigen efter 5 sekunder.
-  setTimeout(slideLoop, 5000);
+  //Lägg till en på index.
+  index++;
+  //Sätt en timeout på 5 sekunder (5000ms)
+  setTimeout(imgHeaderLoop, 5000);
 }
+
+/*
+Improvise, adapt, overcome.
+*/
+function fixImages(url) {
+  /*
+    Om vi är vi "hem" (dvs inte contact el. bokning), gör inget.
+    Om vi inte är där, lägg till "../".
+  */
+  if (
+    !(
+      window.location.pathname.includes("contact") ||
+      window.location.pathname.includes("bokning")
+    )
+  ) {
+    return url;
+  } else {
+    return `../${url}`;
+  }
+}
+for (let i = 0; i < images.length; i++) {
+  let element = images[i][0];
+  element = fixImages(element);
+  images[i][0] = element;
+}
+console.log(images);
+imgHeaderLoop();
