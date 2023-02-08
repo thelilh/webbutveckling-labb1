@@ -8,6 +8,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta
+      name="description"
+      content="Saxalagom är en frisör utanför Göteborg"
+    />
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link
@@ -39,7 +43,7 @@
     <header>
       <nav class="navbar navbar-expand-sm">
         <div class="container">
-          <a class="navbar-brand" href="">Saxalagom</a>
+          <a class="navbar-brand" href="#">✂️Saxalagom</a>
           <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
               <li class="nav-item">
@@ -50,7 +54,27 @@
                   >Kontakta oss</a
                 >
               </li>
+              <li class="nav-item">
+                <a class="nav-link rounded" href="about/" aria-current="page"
+                  >Om oss</a
+                >
+              </li>
             </ul>
+            <div class="dropdown float-end">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="triggerId"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Cart
+              </button>
+              <div class="dropdown-menu" aria-labelledby="triggerId">
+                <ul id="cart"></ul>
+              </div>
+            </div>
           </div>
         </div>
       </nav>

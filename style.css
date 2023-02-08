@@ -1,5 +1,6 @@
 * {
-  color: var(--main-text-color) !important;
+  color: #ffffff !important;
+  transition: all 500ms;
 }
 .imgHeader {
   min-height: 40vh; /* You must set a specified height */
@@ -15,22 +16,36 @@
 }
 .bg-transparent {
   margin-top: 2.25em;
-  background: rgba(0, 0, 0, 0.4) !important;
+  width: 20vw;
+  margin-right: auto;
+  margin-left: auto;
+  border: 5px solid rgb(63, 63, 209);
+  background-color: #ffffff !important;
+  border-radius: 1em;
+  padding: 10px;
+  color: black !important;
 }
 .bg-transparent:hover {
-  background: rgba(0, 0, 0, 1) !important;
+  background: rgb(63, 63, 209) !important;
+  border: 5px solid none;
+  color: #ffffff !important;
 }
 body {
-  background-color: var(--main-bg-color) !important;
-  color: var(--main-text-color) !important;
+  background-color: #555 !important;
+  color: #ffffff !important;
 }
 .navbar,
 .navbar-brand {
-  background-color: var(--sub-bg-color) !important;
+  background-color: #333 !important;
 }
-.nav-link:hover,
+.navbar {
+  border-bottom: 0.2em solid red;
+}
+.nav-link:hover {
+  background-color: #555 !important;
+}
 .navbar-brand:hover {
-  background-color: var(--main-bg-color) !important;
+  color: rgb(63, 63, 209) !important;
 }
 
 .navbar-brand {
@@ -38,32 +53,20 @@ body {
   padding-right: 0.5em;
   border-radius: 0.3em;
 }
-.navbar-brand::before {
-  color: rgb(255, 0, 0);
-  content: "✂️<";
-}
 .navbar-brand {
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
-  color: rgb(0, 100, 255) !important;
+  color: rgb(255, 174, 0) !important;
 }
-.navbar-brand::after {
-  color: rgb(0, 255, 0);
-  content: "/>";
+.dropdown-item,
+.dropdown-menu {
+  background-color: #555;
+  color: #ffffff;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --main-bg-color: #555;
-    --sub-bg-color: #333;
-    --main-text-color: #fff;
-  }
+.dropdown-item:hover {
+  background-color: #333;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --main-bg-color: #fff;
-    --sub-bg-color: #ddd;
-    --main-text-color: #000;
-  }
+.dropdown-item {
+  cursor: pointer;
 }
