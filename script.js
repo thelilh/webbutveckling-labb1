@@ -1,4 +1,5 @@
 const header = document.getElementById("imgHeader");
+const number = document.getElementById("randomNumber");
 let images = [
   ["img/img1.webp", "Boka tid"],
   ["img/img2.webp", "Image 2"],
@@ -8,13 +9,11 @@ let images = [
 let index = 0;
 
 function imgHeaderLoop() {
-  console.log(index);
   //Kolla om vi är större än längden av images
   if (index >= images.length || index < 0) {
     index = 0;
   }
   //Hämta bilden från index.
-  console.log(images[index][0]);
   header.style.backgroundImage = `url(${images[index][0]})`;
   for (const child of header.children) {
     if (child.tagName === "H1") {
@@ -56,6 +55,26 @@ console.log(images);
 imgHeaderLoop();
 
 /*
+Random Number
+*/
+number.innerText = randomNum();
+
+function randomNum() {
+  let tmpArray = [
+    "071-979 64 91",
+    "079-954 76 44",
+    "071-004 36 36",
+    "071-911 24 63",
+    "071-829 03 81",
+    "071-420 69 30",
+  ];
+  let min = 0;
+  let max = tmpArray.length;
+  let num = tmpArray[Math.floor(Math.random() * (max - min)) + min];
+  console.log(num);
+  return num;
+}
+/*
 Kundvagn
 */
 const cartElement = document.querySelector("#cart");
@@ -71,9 +90,8 @@ class cartItem {
   }
 }
 class cart {
-  constructor(id, name, items) {
+  constructor(id, items) {
     this.id = id;
-    this.name = name;
     this.items = items;
   }
 
@@ -82,9 +100,13 @@ class cart {
   }
 
   RemoveFromCart(item) {
-    if (item in this.items) {
-      this.items.pop();
+    let tempArray = [];
+    for (const sub of this.items) {
+      if (sub != item) {
+        tempArray.push(sub);
+      }
     }
+    this.items = tempArray;
     console.log(this.items);
     this.CreateCartAsElements();
   }
@@ -97,20 +119,23 @@ class cart {
     cartElement.innerHTML = ``;
     if (this.items.length > 0) {
       for (const item of this.items) {
-        const a = document.createElement("li");
-        a.innerText = `${item.ToString()}`;
-        a.classList.add("dropdown-item");
-        a.onclick = () => {
+        const p = document.createElement("p");
+        p.innerText = `${item.ToString()}`;
+        p.classList.add("dropdown-item");
+        p.onclick = () => {
           this.RemoveFromCart(item);
         };
-        cartElement.appendChild(a);
+        cartElement.appendChild(p);
       }
     } else {
-      console.log(this.name);
+      const p = document.createElement("p");
+      p.innerText = "Add something to your cart!";
+      p.classList.add("dropdown-item");
+      cartElement.appendChild(p);
     }
   }
 }
-const newCart = new cart(0, "test", []);
+const newCart = new cart(0, []);
 newCart.AddToCart(new cartItem(0, "test", 5));
-newCart.AddToCart(new cartItem(0, "Test 2", 15));
+newCart.AddToCart(new cartItem(1, "Test 2", 15));
 newCart.CreateCartAsElements();

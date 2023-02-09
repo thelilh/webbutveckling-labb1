@@ -41,9 +41,11 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-sm">
+      <div class="logo-div">
+        <a class="logo" href="#"><img src="img/saxalagom-logo.webp" /></a>
+      </div>
+      <nav class="navbar navbar-expand-sm text-center">
         <div class="container">
-          <a class="navbar-brand" href="#">✂️Saxalagom</a>
           <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
               <li class="nav-item">
@@ -71,21 +73,39 @@
               >
                 Cart
               </button>
-              <div class="dropdown-menu" aria-labelledby="triggerId">
-                <ul id="cart"></ul>
-              </div>
+              <div
+                class="dropdown-menu"
+                id="cart"
+                aria-labelledby="triggerId"
+              ></div>
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <main>
-      <div class="imgHeader text-center" id="imgHeader">
-        <h1 class="bg-transparent" id="click">test</h1>
+    <main class="text-center">
+      <div class="imgHeader" id="imgHeader">
+        <h1 class="button-custom-bkg" id="click">test</h1>
       </div>
-      <div>
-        <p>test</p>
+      <div class="treatments">
+        <h1>Våra Behandlingar</h1>
       </div>
+      <div class="book">
+        <h1>Boka Ett Besök</h1>
+        <p>Vill du boka en tid eller diskutera alternativ?</p>
+        <p>
+          Ring:
+          <span
+            class="italic noSelect"
+            id="randomNumber"
+            title="Detta nummer finns ej"
+            >073-979 64 91</span
+          >
+          eller boka online
+        </p>
+        <a class="btn button-custom-bkg" href="#" role="button">Boka online</a>
+      </div>
+      <div class="hairdressers"><h1>Frisörer</h1></div>
     </main>
     <footer></footer>
   </body>
