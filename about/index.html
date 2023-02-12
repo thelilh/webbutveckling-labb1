@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Saxalagom - Helt Lagom Klippning</title>
+    <title>Saxalagom - Om oss</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -32,18 +32,18 @@
       crossorigin="anonymous"
       defer
     ></script>
-    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
+    <script src="../script.js" defer></script>
   </head>
 
   <body>
     <header>
       <div class="logo-div">
-        <a class="logo" href="#"
+        <a class="logo" href="../"
           ><img
-            width="1472"
-            height="370"
-            src="img/saxalagom-logo.webp"
+            width="676"
+            height="170"
+            src="../img/saxalagom-logo.webp"
             alt="Logotyp för Saxalagom"
         /></a>
       </div>
@@ -63,13 +63,16 @@
           <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="about">Om Saxalagom</a>
+                <a class="nav-link" href="#"
+                  >Om Saxalagom
+                  <span class="visually-hidden">(current)</span></a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact">Kontakta oss</a>
+                <a class="nav-link" href="../contact/">Kontakta oss</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="bokning">Boka tid</a>
+                <a class="nav-link" href="../bokning/">Boka tid</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -94,45 +97,50 @@
     </header>
     <main class="text-center">
       <div class="imgHeader" id="imgHeader">
-        <h1>Välkommen till Saxalagom!</h1>
+        <h1 class="button-custom-bkg" id="click">Om Saxalagom</h1>
       </div>
-      <div class="treatments container mw-100">
-        <h1 class="pt-3 pb-3">Våra Behandlingar</h1>
-        <div class="row justify-content-center align-items-center g-2">
-          <div class="col">
-            <a href="/bokning" class="text-decoration-none">
-              <p>Herrklippning</p>
-            </a>
-          </div>
-          <div class="col">
-            <a href="/bokning" class="text-decoration-none">
-              <p>Olaplex behandling</p>
-            </a>
-          </div>
-          <div class="col">
-            <a href="/bokning" class="text-decoration-none">
-              <p>Klipp & färg</p>
-            </a>
+      <div>
+        <div class="container">
+          <div class="row">
+            <div class="col-5">
+              <h1 class="pt-5">Frisörsalong i centrala Göteborg</h1>
+              <p class="text-start">
+                Saxalagom har våran salong på Tredje Långgatan mellan de
+                underbara områdena Haga och Masshugget där vi brinner för att du
+                ska ha en lagom frisyr och vara glad över det. För vem fan tror
+                du att du är? Kungen? De e bara en frisyr liksom?
+              </p>
+              <h1 class="pt-5">Alla är välkomna</h1>
+              <p class="text-start">
+                Så länge du kan betala för din frisyr bryr vi fan oss inte om
+                vem du är. Kan vi din frisyr? Boka då tid, så kanske vi kan göra
+                något åt dit hår. Vi lovar inget, bara att ditt hår ser inte sig
+                likt ut när du kom till oss.
+              </p>
+              <h1 class="pt-5">Kontantfri butik</h1>
+              <p class="pb-5">
+                Saxalagom är en kontantfri butik. Vi välkomnar att betala med de
+                vanligaste typerna av betal- och kreditkort.
+              </p>
+            </div>
+            <div class="col">
+              <h2 class="pt-5 pb-5">Hitta oss på Google!</h2>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163.11032727243364!2d11.948160359585058!3d57.69832238688876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff34170cb9103%3A0xc5c134fa79172847!2sTredje%20L%C3%A5nggatan%2026%2C%20413%2028%20G%C3%B6teborg!5e0!3m2!1sen!2sse!4v1676188472140!5m2!1sen!2sse"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Google Maps"
+                class="rounded-5 mb-5 border border-5 border-info"
+                width="500"
+                height="400"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
-      <div class="book">
-        <h1>Boka Ett Besök</h1>
-        <p>Vill du boka en tid eller diskutera alternativ?</p>
-        <p>
-          Ring:
-          <span
-            class="italic noSelect"
-            id="randomNumber"
-            title="Detta nummer finns ej"
-            >073-979 64 91</span
-          >
-          eller boka online
-        </p>
-        <a class="btn button-custom-bkg" href="bokning" role="button"
-          >Boka online</a
-        >
-      </div>
     </main>
+    <footer></footer>
   </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Saxalagom - Helt Lagom Klippning</title>
+    <title>Saxalagom - Bokning</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -32,18 +32,18 @@
       crossorigin="anonymous"
       defer
     ></script>
-    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
+    <script src="../script.js" defer></script>
   </head>
 
   <body>
     <header>
       <div class="logo-div">
-        <a class="logo" href="#"
+        <a class="logo" href="../"
           ><img
-            width="1472"
-            height="370"
-            src="img/saxalagom-logo.webp"
+            width="676"
+            height="170"
+            src="../img/saxalagom-logo.webp"
             alt="Logotyp för Saxalagom"
         /></a>
       </div>
@@ -63,13 +63,15 @@
           <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="about">Om Saxalagom</a>
+                <a class="nav-link" href="../about/">Om Saxalagom</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact">Kontakta oss</a>
+                <a class="nav-link" href="../contact/">Kontakta oss</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="bokning">Boka tid</a>
+                <a class="nav-link" href="#"
+                  >Boka tid <span class="visually-hidden">(current)</span></a
+                >
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -94,45 +96,14 @@
     </header>
     <main class="text-center">
       <div class="imgHeader" id="imgHeader">
-        <h1>Välkommen till Saxalagom!</h1>
+        <h1 class="button-custom-bkg" id="click">Bokning av Tider</h1>
       </div>
-      <div class="treatments container mw-100">
-        <h1 class="pt-3 pb-3">Våra Behandlingar</h1>
-        <div class="row justify-content-center align-items-center g-2">
-          <div class="col">
-            <a href="/bokning" class="text-decoration-none">
-              <p>Herrklippning</p>
-            </a>
-          </div>
-          <div class="col">
-            <a href="/bokning" class="text-decoration-none">
-              <p>Olaplex behandling</p>
-            </a>
-          </div>
-          <div class="col">
-            <a href="/bokning" class="text-decoration-none">
-              <p>Klipp & färg</p>
-            </a>
-          </div>
+      <div>
+        <div class="container">
+          <ul id="existingItemsUl"></ul>
         </div>
       </div>
-      <div class="book">
-        <h1>Boka Ett Besök</h1>
-        <p>Vill du boka en tid eller diskutera alternativ?</p>
-        <p>
-          Ring:
-          <span
-            class="italic noSelect"
-            id="randomNumber"
-            title="Detta nummer finns ej"
-            >073-979 64 91</span
-          >
-          eller boka online
-        </p>
-        <a class="btn button-custom-bkg" href="bokning" role="button"
-          >Boka online</a
-        >
-      </div>
     </main>
+    <footer></footer>
   </body>
 </html>

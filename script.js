@@ -1,39 +1,16 @@
 const header = document.getElementById("imgHeader");
-const number = document.getElementById("randomNumber");
+const phoneNumber = document.querySelector("#randomNumber");
+const headerClick = document.getElementById("headerClick");
+const headerLink = document.getElementById("headerLink");
+const existingItems = document.getElementById("existingItemsUl");
 let images = [
-  ["img/img1.webp", "Boka tid"],
-  ["img/img2.webp", "Image 2"],
-  ["img/img3.webp", "Image 3"],
-  ["img/img4.webp", "Färga håret?"],
+  ["img/img1.webp", "Boka tid", "/bokning"],
+  ["img/img2.webp", "Om Saxalagom", "/about"],
+  ["img/img3.webp", "Kontakta oss", "/contact"],
 ];
 let index = 0;
 
 function imgHeaderLoop() {
-  //Kolla om vi är större än längden av images
-  if (index >= images.length || index < 0) {
-    index = 0;
-  }
-  //Hämta bilden från index.
-  header.style.backgroundImage = `url(${images[index][0]})`;
-  for (const child of header.children) {
-    if (child.tagName === "H1") {
-      child.innerText = images[index][1];
-    }
-  }
-  //Lägg till en på index.
-  index++;
-  //Sätt en timeout på 5 sekunder (5000ms)
-  setTimeout(imgHeaderLoop, 5000);
-}
-
-/*
-Improvise, adapt, overcome.
-*/
-function fixImages(url) {
-  /*
-    Om vi är vi "hem" (dvs inte contact el. bokning), gör inget.
-    Om vi inte är där, lägg till "../".
-  */
   if (
     !(
       window.location.pathname.includes("about") ||
@@ -41,25 +18,20 @@ function fixImages(url) {
       window.location.pathname.includes("contact")
     )
   ) {
-    return url;
+    header.style.backgroundImage = `url(img/img1.webp)`;
   } else {
-    return `../${url}`;
+    header.style.backgroundImage = `url(../img/img1.webp)`;
   }
 }
-for (let i = 0; i < images.length; i++) {
-  let element = images[i][0];
-  element = fixImages(element);
-  images[i][0] = element;
-}
-console.log(images);
-imgHeaderLoop();
 
 /*
 Random Number
 */
-number.innerText = randomNum();
+if (typeof phoneNumber != "undefined" && phoneNumber != null) {
+  phoneNumber.innerText = randomPhoneNumber();
+}
 
-function randomNum() {
+function randomPhoneNumber() {
   let tmpArray = [
     "071-979 64 91",
     "079-954 76 44",
@@ -71,7 +43,6 @@ function randomNum() {
   let min = 0;
   let max = tmpArray.length;
   let num = tmpArray[Math.floor(Math.random() * (max - min)) + min];
-  console.log(num);
   return num;
 }
 /*
@@ -90,23 +61,34 @@ class cartItem {
   }
 }
 class cart {
-  constructor(id, items) {
-    this.id = id;
-    this.items = items;
+  constructor() {
+    this.existingItems = [
+      new cartItem(0, "Herrklippning (30 min)", 200),
+      new cartItem(1, "Herrklippning (60 min)", 250),
+      new cartItem(2, "Herrklippning (90 min)", 300),
+      new cartItem(3, "Dammklippning (30 min)", 200),
+      new cartItem(4, "Dammklippning (60 min)", 250),
+      new cartItem(5, "Dammklippning (90 min)", 300),
+      new cartItem(6, "Färgning/Blekning", 200),
+    ];
+    this.items = {
+      0: 0,
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      6: 0,
+    };
   }
 
-  AddToCart(item) {
-    this.items.push(item);
+  AddToCart(key) {
+    this.items[key]++;
+    this.CreateCartAsElements();
   }
 
-  RemoveFromCart(item) {
-    let tempArray = [];
-    for (const sub of this.items) {
-      if (sub != item) {
-        tempArray.push(sub);
-      }
-    }
-    this.items = tempArray;
+  RemoveFromCart(key) {
+    this.items[key]--;
     console.log(this.items);
     this.CreateCartAsElements();
   }
@@ -115,27 +97,64 @@ class cart {
     return this.items;
   }
 
+  TotalPrice() {
+    let price = 0;
+    for (let key in this.items) {
+      if (this.items[key] > 0) {
+        price += this.existingItems[key].cost * this.items[key];
+      }
+    }
+    return price.toString();
+  }
+
+  AnyDictLargerThanZero() {
+    for (var key in this.items) {
+      if (this.items[key] > 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   CreateCartAsElements() {
     cartElement.innerHTML = ``;
-    if (this.items.length > 0) {
-      for (const item of this.items) {
-        const p = document.createElement("p");
-        p.innerText = `${item.ToString()}`;
-        p.classList.add("dropdown-item");
-        p.onclick = () => {
-          this.RemoveFromCart(item);
-        };
-        cartElement.appendChild(p);
+    if (this.AnyDictLargerThanZero()) {
+      for (let key in this.items) {
+        if (this.items[key] > 0) {
+          const p = document.createElement("p");
+          p.innerText = `${this.existingItems[key].ToString()} x${
+            this.items[key]
+          }`;
+          p.classList.add("dropdown-item");
+          p.onclick = () => {
+            this.RemoveFromCart(key);
+          };
+          cartElement.appendChild(p);
+        }
       }
+      const p = document.createElement("p");
+      p.innerText = `Total Price: ${this.TotalPrice()}`;
+      cartElement.appendChild(p);
     } else {
       const p = document.createElement("p");
       p.innerText = "Add something to your cart!";
       p.classList.add("dropdown-item");
       cartElement.appendChild(p);
     }
+
+    //Existing Items
+    if (existingItems != null && this.existingItems.length > 0) {
+      existingItems.innerHTML = ``;
+      for (const item of this.existingItems) {
+        const li = document.createElement("li");
+        li.innerText = `${item.ToString()}`;
+        li.onclick = () => {
+          this.AddToCart(item.id);
+        };
+        existingItems.appendChild(li);
+      }
+    }
   }
 }
-const newCart = new cart(0, []);
-newCart.AddToCart(new cartItem(0, "test", 5));
-newCart.AddToCart(new cartItem(1, "Test 2", 15));
+const newCart = new cart();
 newCart.CreateCartAsElements();
